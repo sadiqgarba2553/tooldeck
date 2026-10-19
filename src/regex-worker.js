@@ -1,0 +1,1 @@
+self.onmessage=({data})=>{try{const re=new RegExp(data.pattern,data.flags.includes('g')?data.flags:data.flags+'g'),matches=[];for(const m of data.value.matchAll(re)){matches.push({match:m[0],index:m.index,groups:m.slice(1)});if(matches.length>=10000)break;}self.postMessage({result:JSON.stringify(matches,null,2)});}catch(error){self.postMessage({error:error.message});}};

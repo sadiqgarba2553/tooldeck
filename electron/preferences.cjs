@@ -1,0 +1,5 @@
+const {app,BrowserWindow}=require('electron'),fs=require('original-fs').promises,path=require('node:path'),{pathToFileURL}=require('node:url');
+async function legacyPreferences(){const directory=app.getPath('userData'),snapshot=path.join(directory,'legacy-preferences.json');try{return JSON.parse(await fs.readFile(snapshot,'utf8'));}catch{}
+  const file=path.join(directory,'legacy-preferences.html');await fs.writeFile(file,'<!doctype html><meta charset="utf-8"><title>Tooldeck preferences migration</title>');
+  const hidden=new BrowserWindow({show:false,webPreferences:{nodeIntegration:false,contextIsolation:true,sandbox:true}});try{await hidden.loadURL(pathToFileURL(file).href);const values=await hidden.webContents.executeJavaScript("Object.fromEntries(Object.entries(localStorage).filter(([key,value])=>(key.startsWith('td-')||key.startsWith('tooldeck-')||key==='bluecloud-update-proof')&&key.length<200&&value.length<10000).slice(0,100))");await fs.writeFile(snapshot,JSON.stringify(values));return values;}finally{hidden.destroy();await fs.rm(file,{force:true});}}
+module.exports={legacyPreferences};

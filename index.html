@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Tooldeck: local PDF, image, audio, video, conversion and utility tools."><title>Tooldeck — BlueCloud</title></head>
+<body>
+<header class="app-header"><button class="brand" id="home" aria-label="Tooldeck home"><span class="brand-mark" aria-hidden="true">▦</span>tooldeck<span class="alpha">ALPHA</span></button><span class="header-note">A little less busywork.</span><span class="local-badge"><span></span>Files stay on your device</span></header>
+<main>
+<section id="catalog-view" class="catalog-view">
+<div class="library-intro"><div><p class="eyebrow">YOUR EVERYDAY TOOLKIT</p><h1>One place. Every little task.</h1><p>PDFs, images, media and the everyday things in between.</p></div><label class="search-wrap"><span class="sr-only">Search tools</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search tools…"><kbd>Ctrl K</kbd></label></div>
+<nav id="categories" class="categories" aria-label="Tool categories"></nav>
+<div class="section-label"><h2 id="list-heading">All tools</h2><span id="tool-count"></span></div>
+<div id="tools" class="tool-grid"></div><div id="empty" class="empty" hidden><h2>No matching tools</h2><p>Try another name or choose a different category.</p><button id="clear-search" class="secondary">Clear search</button></div>
+<footer class="library-footer"><span>Useful tools. No accounts. No uploads.</span><span>TOOLDECK / BLUECLOUD</span></footer>
+</section>
+<section id="workspace-view" class="workspace-view" hidden>
+<button type="button" id="back" class="back-button">← All tools</button><p class="eyebrow" id="category"></p><h1 id="title"></h1><p id="description" class="workspace-description"></p>
+<div class="workspace-panel"><form id="form"><div id="controls"></div><div class="action-row"><button type="submit" id="run" class="primary">Run tool →</button><button type="button" id="cancel" class="secondary" hidden>Cancel</button><button type="button" id="reset" class="secondary">Reset</button></div></form><p id="status" role="status" aria-live="polite"></p>
+<section id="result" hidden><div class="result-heading"><h2>Your result</h2><button type="button" id="copy" class="secondary" hidden>Copy text</button></div><textarea id="output" readonly aria-label="Tool output" hidden></textarea><div id="preview"></div><div id="downloads"></div></section></div>
+<p class="workspace-footer">Processed on this device. Your original files are left untouched.</p>
+</section>
+</main><script type="module" src="/src/main.js"></script>
+</body></html>
