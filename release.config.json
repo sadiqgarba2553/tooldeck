@@ -4,27 +4,17 @@
   "version": "0.5.0",
   "sourceName": "Tooldeck",
   "title": "Tooldeck 0.5.0 \u00b7 Windows",
-  "notes": "Merge, extract and rotate PDF pages \u00c2\u00b7 Resize and convert images \u00c2\u00b7 JSON, text, Base64 and URL utilities \u00c2\u00b7 QR codes, passwords and file hashes",
-  "migration": {
-    "source": "https://github.com/sadiqgarba2553/bluecloud-website/releases/download/v0.5.0",
-    "assets": [
-      {
-        "name": "tooldeck-0.5.0-win-x64.zip",
-        "size": 209560539,
-        "sha256": "6a43d7fa3af48147d9a1426c27a5e5bf361db2abfda399791ab8aff74239df67"
-      },
-      {
-        "name": "Tooldeck-Setup-0.5.0-x64.exe",
-        "size": 155979740,
-        "sha256": "1ade375f7935be590ec6e988f5dda79586bc984befd643f544681979e92b57e3"
-      }
-    ]
-  },
+  "notes": "Local PDF, image, audio and video tools, conversions, QR codes, file hashes and text utilities.",
   "package": {
     "name": "tooldeck-0.5.0-win-x64.zip",
     "type": "zip",
     "minimumLauncher": "0.5.0",
     "executable": "Tooldeck.exe",
     "unpackedSize": 521672524
-  }
+  },
+  "localAssets": [
+    ".release/packages/tooldeck-0.5.0-win-x64.zip",
+    "release/Tooldeck-Setup-0.5.0-x64.exe"
+  ],
+  "unpackedDirectory": "release/win-unpacked"
 }
