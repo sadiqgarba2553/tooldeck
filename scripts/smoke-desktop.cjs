@@ -1,10 +1,10 @@
 const {expect,_electron:electron}=require('@playwright/test');
 const fs=require('node:fs/promises'),path=require('node:path'),{spawnSync}=require('node:child_process');
 const {PDFDocument}=require('pdf-lib');
-const appDir=path.resolve(__dirname,'..'),root=path.resolve(appDir,'../..'),artifacts=path.join(root,'artifacts');
-(async()=>{const profile=await fs.mkdtemp(path.join(artifacts,'tooldeck-card-test-')),packaged=process.argv.includes('--packaged');let app;
+const appDir=path.resolve(__dirname,'..'),artifacts=path.join(appDir,'artifacts');
+(async()=>{await fs.mkdir(path.join(artifacts,'screenshots'),{recursive:true});const profile=await fs.mkdtemp(path.join(artifacts,'tooldeck-card-test-')),packaged=process.argv.includes('--packaged');let app;
   try{const doc=await PDFDocument.create();for(let n=1;n<=3;n++)doc.addPage([600,400]).drawText(`Hello Tooldeck ${n}`,{x:50,y:250,size:35});const fixture=Buffer.from(await doc.save());
-    app=await electron.launch(packaged?{executablePath:path.join(artifacts,'tooldeck/win-unpacked/Tooldeck.exe'),args:[`--user-data-dir=${profile}`]}:{executablePath:require('electron'),args:[appDir,`--user-data-dir=${profile}`]});
+    app=await electron.launch(packaged?{executablePath:path.join(appDir,'release/win-unpacked/Tooldeck.exe'),args:[`--user-data-dir=${profile}`]}:{executablePath:require('electron'),args:[appDir,`--user-data-dir=${profile}`]});
     const page=await app.firstWindow(),errors=[];page.on('pageerror',error=>errors.push(error.message));
     await expect(page.locator('.tool-card')).toHaveCount(79);await expect(page.locator('.categories button')).toHaveCount(7);await page.screenshot({path:path.join(artifacts,'screenshots/tooldeck-cards.png'),fullPage:false});
     async function choose(name){console.log("Checking",name);if(!await page.locator('#catalog-view').isVisible())await page.locator('#back').click();await page.locator('#search').fill(name);await page.getByRole('button',{name,exact:true}).click();}

@@ -13,3 +13,8 @@ release-private.pem
 *.p12
 *.key
 *.pem
+
+# Generated icon sizes; distributable icons live directly in assets.
+assets/icons/
+dist/
+*.log

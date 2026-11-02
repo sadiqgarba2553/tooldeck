@@ -1,20 +1,20 @@
 {
   "appId": "tooldeck",
   "repository": "sadiqgarba2553/tooldeck",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "sourceName": "Tooldeck",
-  "title": "Tooldeck 0.5.0 \u00b7 Windows",
-  "notes": "Local PDF, image, audio and video tools, conversions, QR codes, file hashes and text utilities.",
+  "title": "Tooldeck 0.5.1 - Windows",
+  "notes": "New squircle toolbox logo throughout the app and Windows icons, plus updated icon and packaging systems. Includes 79 local tools, bundled PDF, OCR, QPDF and FFmpeg runtimes, standalone installation and verified Launcher updates. Existing settings and app identifiers are preserved.",
   "package": {
-    "name": "tooldeck-0.5.0-win-x64.zip",
+    "name": "tooldeck-0.5.1-win-x64.zip",
     "type": "zip",
     "minimumLauncher": "0.5.0",
     "executable": "Tooldeck.exe",
     "unpackedSize": 521672524
   },
   "localAssets": [
-    ".release/packages/tooldeck-0.5.0-win-x64.zip",
-    "release/Tooldeck-Setup-0.5.0-x64.exe"
+    ".release/packages/tooldeck-0.5.1-win-x64.zip",
+    "release/Tooldeck-Setup-0.5.1-x64.exe"
   ],
   "unpackedDirectory": "release/win-unpacked"
 }

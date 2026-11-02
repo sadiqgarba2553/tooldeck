@@ -1,6 +1,6 @@
 {
   "name": "bluecloud-tooldeck",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "type": "module",
   "description": "Local PDF, image, video, audio, conversion and utility tools by BlueCloud",
@@ -49,13 +49,14 @@
       "dist/**/*",
       "electron/**/*",
       "assets/**/*",
+      "!assets/icons/**/*",
       "package.json",
       "THIRD_PARTY.md",
       "!node_modules/**/*"
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/tooldeck.png",
+      "icon": "assets/tooldeck.ico",
       "signExecutable": false
     },
     "nsis": {
