@@ -1,0 +1,2 @@
+const base=require('./package.json').build;
+module.exports={...base,extraResources:[{from:'node_modules/ffmpeg-static/ffmpeg',to:'native/ffmpeg'}],linux:{target:['AppImage','deb'],category:'Utility',maintainer:'BLUECLOUD <sadeeqsgi@icloud.com>',icon:'assets/tooldeck.png',artifactName:'Tooldeck-${version}-${arch}.${ext}'},deb:{depends:['libgtk-3-0','libnss3','libxss1','libxtst6','libatspi2.0-0','libsecret-1-0','qpdf']}};

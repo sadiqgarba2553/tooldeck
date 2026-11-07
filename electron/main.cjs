@@ -3,6 +3,7 @@ const path=require('node:path');const {pathToFileURL}=require('node:url');const 
 const {legacyPreferences}=require('./preferences.cjs');
 protocol.registerSchemesAsPrivileged([{scheme:'tooldeck',privileges:{standard:true,secure:true,supportFetchAPI:true,stream:true}}]);
 app.setAppUserModelId('com.bluecloud.tooldeck');
+if(process.platform==='linux')app.setDesktopName('com.bluecloud.tooldeck.desktop');
 if(app.commandLine.hasSwitch('user-data-dir'))app.setPath('userData',path.resolve(app.commandLine.getSwitchValue('user-data-dir')));
 const start='tooldeck://app/index.html',root=path.resolve(__dirname,'../dist');
 if(!app.requestSingleInstanceLock())app.quit();else app.whenReady().then(async()=>{
